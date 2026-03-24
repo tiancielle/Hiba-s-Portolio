@@ -1,0 +1,20 @@
+.wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; margin-top: 3rem; max-width: 940px; }
+.intro { font-size: .92rem; color: var(--txt-2); line-height: 1.85; margin-bottom: 2rem; }
+.socials { display: flex; flex-direction: column; gap: .6rem; }
+.social { display: inline-flex; align-items: center; gap: .5rem; font-size: .82rem; font-weight: 500; color: var(--txt-2); padding: 9px 16px; border: 1.5px solid var(--border-l); border-radius: 9px; max-width: 260px; transition: border-color .25s, color .25s, background .25s; }
+.social:hover { border-color: var(--accent-d); color: var(--accent-d); background: rgba(255,127,127,.05); }
+.form { display: flex; flex-direction: column; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+.group { margin-bottom: 1.25rem; }
+.group:last-of-type { margin-bottom: 0; }
+.label { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--txt-2); margin-bottom: .5rem; }
+.input { width: 100%; padding: 12px 14px; background: var(--bg-input); border: 1.5px solid var(--border-l); border-radius: 9px; color: var(--txt); font-family: var(--font-sans); font-size: .87rem; outline: none; transition: border-color .25s, box-shadow .25s; }
+.input::placeholder { color: var(--border); }
+.input:focus { border-color: var(--accent-d); box-shadow: 0 0 0 3px rgba(255,127,127,.14); }
+.ta { resize: vertical; }
+.submit { width: 100%; margin-top: 1.5rem; padding: 14px; background: var(--txt); color: var(--bg); border: none; border-radius: 9px; font-family: var(--font-sans); font-size: .87rem; font-weight: 500; letter-spacing: .05em; cursor: pointer; transition: background .3s, transform .3s, box-shadow .3s; }
+.submit:hover:not(:disabled) { background: var(--accent-d); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,87,87,.28); }
+.submit:disabled { opacity: .7; cursor: not-allowed; }
+.ok { background: #52b788 !important; }
+@media (max-width: 900px) { .wrap { grid-template-columns: 1fr; gap: 3rem; } }
+@media (max-width: 500px) { .row { grid-template-columns: 1fr; } }

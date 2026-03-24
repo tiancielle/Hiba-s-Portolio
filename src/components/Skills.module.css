@@ -1,0 +1,30 @@
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; }
+
+.catCard { background: var(--bg-card); border: 1.5px solid var(--border-l); border-radius: 16px; overflow: hidden; transition: border-color .3s, box-shadow .3s; }
+.catCard:hover, .catOpen { border-color: var(--accent); box-shadow: var(--shadow-card); }
+
+.catHeader { width: 100%; display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.4rem; background: transparent; border: none; cursor: pointer; text-align: left; transition: background .25s; }
+.catHeader:hover { background: rgba(255,181,181,.06); }
+
+.catIcon { font-size: 1.6rem; flex-shrink: 0; }
+.catMeta { flex: 1; display: flex; flex-direction: column; gap: .15rem; }
+.catName { font-family: var(--font-serif); font-size: 1.05rem; color: var(--txt); line-height: 1.2; }
+.catDesc { font-size: .74rem; color: var(--txt-2); }
+.catCount { font-size: .7rem; font-weight: 600; color: var(--accent-text); background: var(--border-l); border-radius: 20px; padding: 2px 9px; letter-spacing: .04em; }
+.chevron { font-size: 1.3rem; color: var(--txt-2); line-height: 1; display: inline-block; transform: rotate(90deg); transition: transform .3s var(--ease), color .25s; }
+.chevronUp { transform: rotate(-90deg); color: var(--accent-d); }
+
+.catBody { max-height: 0; overflow: hidden; transition: max-height .45s var(--ease); }
+.catBodyInner { padding: 0 1.4rem 1.25rem; display: flex; flex-direction: column; gap: .6rem; border-top: 1px solid var(--border-l); padding-top: 1rem; }
+
+.skillRow { display: flex; flex-direction: column; gap: .35rem; }
+.skillInfo { display: flex; align-items: center; gap: .65rem; }
+.logoWrap { width: 26px; height: 26px; border-radius: 6px; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--border-l); }
+.logoImg { width: 100%; height: 100%; object-fit: contain; }
+.logoFallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 600; color: var(--accent-d); background: var(--border-l); }
+.skillName { font-size: .83rem; font-weight: 500; color: var(--txt); flex: 1; }
+.skillPct { font-size: .7rem; font-weight: 600; color: var(--accent-text); min-width: 32px; text-align: right; }
+.barTrack { height: 4px; background: var(--border-l); border-radius: 4px; overflow: hidden; }
+.barFill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-d)); border-radius: 4px; transition: width .9s cubic-bezier(.4,0,.2,1); }
+
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,137 @@
+/* ═══════════════════════════════════════════
+   GLOBAL CSS — Hiba Nasri Portfolio v3
+   Palette: warm coral-pink, vivid, feminine
+   Dark mode via [data-theme="dark"] on <html>
+═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── LIGHT TOKENS ── */
+:root {
+  --bg:           #FFF1F1;
+  --bg-alt:       #FFFFFF;
+  --bg-card:      #FFFFFF;
+  --bg-input:     #FFFFFF;
+  --accent:       #FFB5B5;
+  --accent-d:     #FF7F7F;
+  --accent-text:  #E85555;
+  --txt:          #1C1C1C;
+  --txt-2:        #555555;
+  --border:       #FFCECE;
+  --border-l:     #FFE4E4;
+  --shadow:       0 8px 32px rgba(255,127,127,.10);
+  --shadow-h:     0 20px 56px rgba(255,127,127,.20);
+  --shadow-card:  0 2px 12px rgba(255,127,127,.08);
+  --nav-blur:     rgba(255,241,241,.88);
+  --ease:         cubic-bezier(.4,0,.2,1);
+  --font-serif:  'DM Serif Display', Georgia, serif;
+  --font-sans:   'Poppins', system-ui, sans-serif;
+}
+
+/* ── DARK TOKENS ── */
+[data-theme="dark"] {
+  --bg:           #1E1218;
+  --bg-alt:       #261920;
+  --bg-card:      #2E1E27;
+  --bg-input:     #2E1E27;
+  --accent:       #FFB5B5;
+  --accent-d:     #FF7F7F;
+  --accent-text:  #FFB5B5;
+  --txt:          #F5EEF0;
+  --txt-2:        #C9AEBA;
+  --border:       #5C3347;
+  --border-l:     #3D2232;
+  --shadow:       0 8px 32px rgba(0,0,0,.35);
+  --shadow-h:     0 20px 56px rgba(0,0,0,.50);
+  --shadow-card:  0 2px 12px rgba(0,0,0,.30);
+  --nav-blur:     rgba(30,18,24,.90);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg); color: var(--txt);
+  line-height: 1.6; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+button { font-family: var(--font-sans); }
+
+/* ── SCROLL BAR ── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-d));
+  z-index: 1100; transition: width .1s linear; pointer-events: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+@media (pointer: fine) { * { cursor: none !important; } }
+.cursor-ring {
+  position: fixed; pointer-events: none; z-index: 9999;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1.5px solid var(--accent-d);
+  transform: translate(-50%,-50%);
+  transition: width .25s var(--ease), height .25s var(--ease), background .25s;
+}
+.cursor-ring.hovered { width: 52px; height: 52px; background: rgba(255,127,127,.12); }
+.cursor-dot {
+  position: fixed; pointer-events: none; z-index: 9999;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent-d); transform: translate(-50%,-50%);
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 5vw; }
+.section    { padding: 110px 5vw; }
+.section-alt { background: var(--bg-alt); transition: background .4s var(--ease); }
+
+/* ── SECTION HEADER ── */
+.section-label {
+  display: inline-block; font-size: .7rem; font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--accent-text); margin-bottom: .55rem;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem,4vw,3rem); color: var(--txt);
+  line-height: 1.08; margin-bottom: 1rem;
+}
+.section-sub { font-size: .9rem; color: var(--txt-2); max-width: 480px; line-height: 1.8; }
+.section-sep { width: 44px; height: 2px; background: linear-gradient(90deg,var(--accent),var(--accent-d)); border-radius: 2px; margin: 1rem 0; }
+
+/* ── TWO-COL ── */
+.two-col { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+.two-col-hdr { position: sticky; top: 100px; }
+
+/* ── FADE-UP ── */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.d1 { transition-delay: .08s; }
+.fade-up.d2 { transition-delay: .16s; }
+.fade-up.d3 { transition-delay: .24s; }
+.fade-up.d4 { transition-delay: .32s; }
+.fade-up.d5 { transition-delay: .40s; }
+
+/* ── BUTTONS ── */
+.btn { display: inline-block; padding: 13px 30px; border-radius: 8px; font-size: .85rem; font-weight: 500; letter-spacing: .04em; transition: background .3s, color .3s, transform .3s, box-shadow .3s; cursor: pointer; border: none; }
+.btn-primary { background: var(--txt); color: var(--bg); }
+.btn-primary:hover { background: var(--accent-d); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,87,87,.28); }
+.btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--txt-2); }
+.btn-outline:hover { border-color: var(--accent-d); color: var(--accent-d); }
+
+/* ── TAG ── */
+.tag { display: inline-block; font-size: .7rem; font-weight: 500; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--txt-2); background: transparent; letter-spacing: .03em; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+  .two-col-hdr { position: static; }
+}
+@media (max-width: 600px) { .section { padding: 80px 5vw; } }

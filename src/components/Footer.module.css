@@ -1,0 +1,5 @@
+.footer { padding: 2.5rem 5vw; border-top: 1px solid var(--border-l); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; font-size: .78rem; color: var(--txt-2); background: var(--bg-alt); transition: background .4s, border-color .4s; }
+.copy strong { color: var(--txt); }
+.made { color: var(--accent-text); font-weight: 500; }
+.loc { letter-spacing: .04em; }
+@media (max-width: 600px) { .footer { justify-content: center; text-align: center; } }
