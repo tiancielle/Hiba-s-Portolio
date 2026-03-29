@@ -4,12 +4,19 @@ import { CERTIFICATES, CERTS_SECTION } from '../data/data'
 import useFadeIn from '../hooks/useFadeIn'
 import styles from './Certificates.module.css'
 
+
+// ─── ORG COLORS ───────────────────────────────────
 const ORG_COLORS = {
   'IBM':                    { bg: '#1F70C1', fg: '#fff' },
   'Meta':                   { bg: '#0866FF', fg: '#fff' },
   'EPFL':                   { bg: '#E2001A', fg: '#fff' },
   'University of Michigan': { bg: '#00274C', fg: '#FFCB05' },
   'Coursera':               { bg: '#0056D2', fg: '#fff' },
+  'The Hong Kong University of Science and Technology': { bg: '#ED1C24', fg: '#fff' },
+  'Johns Hopkins University': { bg: '#003366', fg: '#fff' },
+  'École Polytechnique':    { bg: '#003399', fg: '#fff' },
+  'Google':                 { bg: '#4285F4', fg: '#fff' },
+  'University of California San Diego': { bg: '#004F9F', fg: '#fff' },
 }
 const DEFAULT_COL = { bg: '#FFB5B5', fg: '#1C1C1C' }
 

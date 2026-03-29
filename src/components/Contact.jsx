@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { CONTACT, SOCIALS } from '../data/data'
 import useFadeIn from '../hooks/useFadeIn'
 import styles from './Contact.module.css'
+import emailjs from '@emailjs/browser'
 
 export default function Contact({ lang }) {
   const t   = CONTACT[lang]
@@ -12,14 +13,32 @@ export default function Contact({ lang }) {
   const change = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
   const submit = e => {
-    e.preventDefault()
-    setStatus('sending')
-    setTimeout(() => {
-      setStatus('success')
-      setForm({ nom: '', email: '', sujet: '', message: '' })
-      setTimeout(() => setStatus('idle'), 3200)
-    }, 900)
-  }
+  e.preventDefault()
+  setStatus('sending')
+
+  emailjs.send(
+    'service_9p1x00l',    
+    'template_epnv84m',   
+    {
+      from_name:  form.nom,
+      from_email: form.email,
+      subject:    form.sujet,
+      message:    form.message,
+    },
+    'qLFZkC9Gh4RX9oflA'       // ← ta Public Key
+  )
+  .then(() => {
+    setStatus('success')
+    setForm({ nom: '', email: '', sujet: '', message: '' })
+    setTimeout(() => setStatus('idle'), 3200)
+  })
+  .catch((error) => {
+    console.log('EmailJS error:', error) 
+    setStatus('idle')
+    // console.log('EmailJS error:', error) 
+    alert('Erreur lors de l\'envoi. Réessaye.')
+  })
+}
 
   const label = status === 'success' ? t.success : status === 'sending' ? t.sending : t.submit
 
