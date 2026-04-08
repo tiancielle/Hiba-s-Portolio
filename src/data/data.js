@@ -505,7 +505,7 @@ export const CONTACT = {
 }
 
 export const SOCIALS = [
-  { label: ' nasrihiba20@gmail.com', href: 'mailto:nasrihiba20@gmail.com'                  },
+  { label: ' e-mail', href: 'mailto:nasrihiba20@gmail.com'                  },
   { label: ' LinkedIn',             href: 'https://linkedin.com/in/hiba-nasri-565928279'  },
   { label: ' GitHub',              href: 'https://github.com/tiancielle'                 },
   //  icon:'/assets/logos/github.png', 
